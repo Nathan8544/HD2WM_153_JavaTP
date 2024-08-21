@@ -2,20 +2,21 @@ html, body {
     height: 100%;
 }
 .app-page-background {
-    background-image: url("background.jpg");
-    background-size: cover;
     width: 100%;
-    height: 100%;
+    height: max-content;
+    background-image: url("fond-ecran.webp");
+    background-size: cover;
 }
-
 /*.app-link-click {
     display: block;
     text-align: center;
 }*/
-/*.app-icon-header-page {
+.app-image-header-page {
     width: 164px;
-}*/
-
+}
 .app-common-page-padding {
     padding: 3rem;
+}
+.app-star-check {
+    color: grey;
 }
