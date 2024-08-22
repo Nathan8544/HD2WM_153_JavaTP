@@ -1,29 +1,47 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="vendor/uikit/css/uikit.min.css">
-    <link rel="stylesheet" href="app-theme.css">
+    <link rel="stylesheet" href="/vendor/uikit/css/uikit.min.css">
+    <link rel="stylesheet" href="/app-theme.css">
 
-    <script src="vendor/uikit/js/uikit.min.js"></script>
-    <script src="vendor/uikit/js/uikit-icons.min.js"></script>
+    <script src="/vendor/uikit/js/uikit.min.js"></script>
+    <script src="/vendor/uikit/js/uikit-icons.min.js"></script>
 
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
 
-<body class="app-common-page-padding app-page-background">
-
-<div>
-    <h1 class="uk-heading-xlarge uk-text-secondary	">Bienvenu sur votre site de streaming </h1>
+<body class="app-page-background">
+<div class="app-common-page-padding">
+    <div>
+        <h1 class="uk-heading-large app-h1">Welcome to Eni Movie</h1>
+    </div>
+    <div class="uk-position-relative">
+        <div class="uk-position-top">
+            <nav class="uk-navbar-container uk-navbar-transparent">
+                <div class="uk-container">
+                    <div class="uk-navbar">
+                        <div class="uk-navbar-left">
+                            <ul class="uk-navbar-nav">
+                                <li><a href="login">Login</a></li>
+                                <li>
+                                    <a href="detail-movie/1">Select a movie</a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                            <li th:each="movie : ${movieList}" class="uk-active"><a th:href="${'detail-movie/' + movie.id}" th:text="${'Acces to the Movie ' + movie.titre}"></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="list-movie">Access to list of Movie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
 </div>
-<div>
-    <a href="">Se connecter</a>
-</div>
-<div>
-    <a href="login.html">Naviguer</a>
-</div>
-
 </body>
 </html>

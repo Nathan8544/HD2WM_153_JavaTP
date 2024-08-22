@@ -3,20 +3,38 @@ html, body {
 }
 .app-page-background {
     width: 100%;
+    margin-top: 10px;
+    min-height: 100%;
     height: max-content;
     background-image: url("fond-ecran.webp");
     background-size: cover;
 }
-/*.app-link-click {
+.app-link-click {
     display: block;
     text-align: center;
-}*/
+}
+.app-h1 {
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+.app-h1-home {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
 .app-image-header-page {
     width: 164px;
 }
 .app-common-page-padding {
     padding: 3rem;
 }
-.app-star-check {
-    color: grey;
+.app-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+.app-space-evenly {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
