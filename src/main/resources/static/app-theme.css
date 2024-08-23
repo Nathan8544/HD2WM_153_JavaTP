@@ -1,7 +1,7 @@
-html, body {
+html {
     height: 100%;
 }
-.app-page-background {
+body {
     width: 100%;
     margin-top: 10px;
     min-height: 100%;
@@ -17,6 +17,7 @@ html, body {
     text-align: center;
     color: white;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 .app-h1-home {
     text-align: center;
@@ -25,6 +26,10 @@ html, body {
 }
 .app-image-header-page {
     width: 164px;
+}
+.app-fixed-size-image {
+    height: 600px;
+    object-fit: cover;
 }
 .app-common-page-padding {
     padding: 3rem;

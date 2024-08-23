@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/vendor/uikit/css/uikit.min.css">
+    <link rel="stylesheet" href="/app-theme.css">
+
+    <script src="/vendor/uikit/js/uikit.min.js"></script>
+    <script src="/vendor/uikit/js/uikit-icons.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="app-page-background">
+
+<nav class="uk-navbar-container eni-navbar-gradient" uk-navbar>
+    <div class="uk-navbar-left eni-navbar-btn-padding">
+        <a class="uk-navbar-toggle" href="#" uk-toggle="target: #offcanvas-nav">
+            <span uk-navbar-toggle-icon></span>
+        </a>
+    </div>
+
+    <!--<div class="uk-navbar-center">
+        <a class="uk-navbar-item uk-logo" href="#">
+            <img src="/logo.png" class="eni-navbar-logo" alt="Logo">
+        </a>
+    </div>-->
+
+    <div class="uk-navbar-right eni-navbar-btn-padding">
+        <a class="uk-icon-button" href="#"><i class="fas fa-sign-in-alt"></i></a>
+    </div>
+</nav>
+<div id="offcanvas-nav" uk-offcanvas="mode: reveal; overlay: true">
+    <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-default">
+            <li class="uk-active"><a href="#">Accueil</a></li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+</div>
+
+<div layout:fragment="content">
+</div>
+
+<footer>
+    @Copyrights
+    <div layout:fragment="footer">
+        Footer detail par défaut
+    </div>
+</footer>
+</body>
+</html>
