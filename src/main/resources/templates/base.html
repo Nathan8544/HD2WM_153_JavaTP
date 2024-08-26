@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html
         lang="en"
-        xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/vendor/uikit/css/uikit.min.css">
-    <link rel="stylesheet" href="/app-theme.css">
+    <title layout:fragment="title">Title</title>
+
+    <link rel="stylesheet" href="/vendor/uikit/css/uikit.min.css"/>
 
     <script src="/vendor/uikit/js/uikit.min.js"></script>
     <script src="/vendor/uikit/js/uikit-icons.min.js"></script>
 
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" href="/app-theme.css"/>
+
+    <div layout:fragment="css-files"></div>
+
 </head>
 <body class="app-page-background">
 
 <nav class="uk-navbar-container eni-navbar-gradient" uk-navbar>
     <div class="uk-navbar-left eni-navbar-btn-padding">
-        <a class="uk-navbar-toggle" href="#" uk-toggle="target: #offcanvas-nav">
+        <a class="uk-navbar-toggle" href="" uk-toggle="target: #offcanvas-nav">
             <span uk-navbar-toggle-icon></span>
         </a>
     </div>
 
-    <!--<div class="uk-navbar-center">
+    <div class="uk-navbar-center">
         <a class="uk-navbar-item uk-logo" href="#">
-            <img src="/logo.png" class="eni-navbar-logo" alt="Logo">
+            <img src="/logo-app.png" class="eni-navbar-logo" alt="Logo">
         </a>
-    </div>-->
+    </div>
 
     <div class="uk-navbar-right eni-navbar-btn-padding">
-        <a class="uk-icon-button" href="#"><i class="fas fa-sign-in-alt"></i></a>
+        <a class="uk-icon-button" href=""><i class="fas fa-sign-out"></i></a>
     </div>
 </nav>
 <div id="offcanvas-nav" uk-offcanvas="mode: reveal; overlay: true">
     <div class="uk-offcanvas-bar">
         <ul class="uk-nav uk-nav-default">
-            <li class="uk-active"><a href="#">Accueil</a></li>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Contact</a></li>
+            <li class="uk-active"><a href="">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/list-movie">Access to list of movies</a></li>
         </ul>
     </div>
 </div>
