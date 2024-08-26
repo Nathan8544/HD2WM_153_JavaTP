@@ -9,6 +9,10 @@ body {
     background-image: url("fond-ecran.webp");
     background-size: cover;
 }
+.app-margin-cote {
+    margin-right: 10px;
+    margin-left: 10px;
+}
 .app-link-click {
     display: block;
     text-align: center;

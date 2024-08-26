@@ -8,22 +8,29 @@
 
     <title layout:fragment="title">Title</title>
 
+    <!-- UIkit CSS -->
     <link rel="stylesheet" href="/vendor/uikit/css/uikit.min.css"/>
 
+    <!-- UIkit JS -->
     <script src="/vendor/uikit/js/uikit.min.js"></script>
     <script src="/vendor/uikit/js/uikit-icons.min.js"></script>
 
+    <!-- Fontawesome CSS -->
+    <!--  <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css"/> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
           integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
 
+    <!-- My Theme -->
     <link rel="stylesheet" href="/app-theme.css"/>
 
+    <!-- Css supplementaire -->
     <div layout:fragment="css-files"></div>
 
-</head>
-<body class="app-page-background">
 
-<nav class="uk-navbar-container eni-navbar-gradient" uk-navbar>
+</head>
+<body>
+
+<nav class="uk-navbar-container eni-navbar-gradient app-margin-cote" uk-navbar>
     <div class="uk-navbar-left eni-navbar-btn-padding">
         <a class="uk-navbar-toggle" href="" uk-toggle="target: #offcanvas-nav">
             <span uk-navbar-toggle-icon></span>
@@ -31,13 +38,20 @@
     </div>
 
     <div class="uk-navbar-center">
-        <a class="uk-navbar-item uk-logo" href="#">
+        <a class="uk-navbar-item uk-logo" href="">
             <img src="/logo-app.png" class="eni-navbar-logo" alt="Logo">
         </a>
     </div>
 
     <div class="uk-navbar-right eni-navbar-btn-padding">
         <a class="uk-icon-button" href=""><i class="fas fa-sign-out"></i></a>
+    </div>
+    <div class="uk-navbar-right eni-navbar-btn-padding">
+        <!-- Afficher le bouton se connecter si loggedUser est null (donc si pas connecté)-->
+        <a th:if="${loggedUser == null}" class="uk-icon-button" href="/login"><i class="fas fa-sign-in-alt"></i></a>
+
+        <!-- Afficher le bouton se déconnecter si loggedUser est null (donc si connecté)-->
+        <a th:if="${loggedUser}" class="uk-icon-button" href="/logout"><i class="fas fa-door-open"></i></a>
     </div>
 </nav>
 <div id="offcanvas-nav" uk-offcanvas="mode: reveal; overlay: true">
@@ -50,13 +64,16 @@
     </div>
 </div>
 
-<div layout:fragment="content">
-</div>
+<!--Partie surchargable-->
+<div layout:fragment="content"></div>
 
-<footer>
-    @Copyrights
-    <div layout:fragment="footer">
-        Footer detail par défaut
+<!--FOOTER-->
+<footer class="uk-section uk-section-small uk-section-muted">
+    <div class="uk-container">
+        <p class="uk-text-small uk-text-center">Copyright 2024 - <a
+                href="https://github.com/zzseba78/Kick-Off">Created by ngi</a> | Built with <a
+                href="http://getuikit.com" title="Visit UIkit 3 site" target="_blank" data-uk-tooltip><span
+                data-uk-icon="uikit"></span></a></p>
     </div>
 </footer>
 </body>
