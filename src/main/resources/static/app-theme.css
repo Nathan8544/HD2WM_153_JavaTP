@@ -6,8 +6,8 @@ body {
     margin-top: 10px;
     min-height: 100%;
     height: max-content;
-    background-image: url("fond-ecran.webp");
-    background-size: cover;
+    /*background-image: url("fond-ecran.webp");
+    background-size: cover;*/
 }
 .app-margin-cote {
     margin-right: 10px;
@@ -19,9 +19,6 @@ body {
 }
 .app-h1 {
     text-align: center;
-    color: white;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 .app-h1-home {
     text-align: center;

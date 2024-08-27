@@ -1,24 +1,22 @@
-package eni.tp.app.eni_app;
+package eni.tp.app.eni_app.Controller;
 
+import eni.tp.app.eni_app.entite.Member;
+import eni.tp.app.eni_app.entite.Movie;
 import eni.tp.app.eni_app.manager.MovieManager;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Arrays;
 import java.util.List;
 
 @Controller
-public class homeController {
-
-    @RequestMapping(value={"/", "home"})
-    public String getHomeView(Model model) {
-        model.addAttribute("movieList", MovieManager.getListMovie());
-
-        return "home";
-    }
+public class MovieController {
     @GetMapping("detail-movie/{id}")
     public String getMovieDetails(@PathVariable("id") long id, Model model) {
         String page;
@@ -41,9 +39,22 @@ public class homeController {
 
         return "list-movie";
     }
-    @GetMapping(value={ "login"})
-    public String getLoginView() {
+    //Formulaire
+    @GetMapping(value={ "form-movie"})
+    public String getFormMovie(Model model){
+        Movie movie = new Movie();
+        model.addAttribute("movie", movie);
 
-        return "login";
+        return "form-movie";
     }
+    @PostMapping(value={ "form-movie"})
+    public String postFormMovie(@Valid @ModelAttribute Movie movie,  BindingResult bindingResult, Model model){
+        if (bindingResult.hasErrors()){
+            return "form-movie";
+        }
+        model.addAttribute("movie", movie);
+
+        return "redirect:/";
+    }
+
 }

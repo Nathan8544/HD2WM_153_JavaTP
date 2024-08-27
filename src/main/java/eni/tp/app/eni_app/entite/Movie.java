@@ -1,14 +1,35 @@
 package eni.tp.app.eni_app.entite;
 
+import jakarta.validation.constraints.*;
+
+import java.util.Calendar;
+import java.util.Date;
+
 public class Movie {
     private long id;
+
+    @NotBlank(message = "Le titre est obligatoire")
+    @Size(min = 2,
+          max = 50,
+          message = "La longueur du titre doit être comprise entre 2 et  50 caractères"
+    )
     private String titre;
+
+    @Positive(message = "L''année est obligatoire")
+    @Min(value = 1950, message = "L''année doit être supérieur à entre 1949")
     private int annee;
+
+    @Positive(message = "Le temps   est obligatoire")
+    @Min(value = 1, message = "Le temps du film doit être supérieur à une minutes")
     private int duree; // durée en minutes
+
     private int note;
+
     private String synopsis;
+
     private String poster;
 
+    public Movie() {}
     public Movie(long id, String titre, int annee, int duree, int note, String synopsis, String poster) {
         this.id = id;
         this.titre = titre;

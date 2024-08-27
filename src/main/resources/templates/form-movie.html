@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html  lang="en"
+       xmlns:th="http://www.thymeleaf.org"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorate="~{commun/base}"
+>
+<body>
+<!-- Surcharger le title -->
+<title layout:fragment="title">Login</title>
+
+<!-- Surcharger le content -->
+<div layout:fragment="content">
+
+    <div class="uk-container">
+
+        <h1 class="uk-heading-divider uk-text-center" style="margin-top: 15px">Formulaire film</h1>
+
+        <form th:object="${movie}" method="post" action="/form-movie">
+            <div class="uk-margin">
+                <label class="uk-form-label" for="label-titre">Titre</label>
+                <input id="label-titre" th:field="*{titre}" type="text" class="uk-input"/>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="label-annee">Année</label>
+                <input id="label-annee" th:field="*{annee}" type="number" class="uk-input"/>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="label-temps">Temps (en minutes)</label>
+                <textarea id="label-temps" th:field="*{duree}" type="number"  class="uk-input"></textarea>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="label-synopsis">Synopsis</label>
+                <input id="label-synopsis" th:field="*{synopsis}" class="uk-input"/>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="label-poster">Poster</label>
+                <input id="label-poster" th:field="*{poster}" class="uk-input"/>
+            </div>
+            <ul th:if="${#fields.hasErrors()}">
+                <li class="uk-form-danger" th:each="error: ${#fields.errors()}" th:text="${error}"></li>
+            </ul>
+
+            <!-- Bouton submit -->
+            <div class="uk-margin">
+                <input type="submit" value="Valider le film" class="uk-button uk-button-primary uk-width-1-1"/>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
