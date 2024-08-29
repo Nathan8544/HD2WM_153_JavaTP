@@ -21,8 +21,9 @@ public class MovieController {
 
     @Autowired
     MovieManager movieManager;
+    List<Integer> maxStars = Arrays.asList(1, 2, 3, 4, 5);
 
-    @GetMapping("detail-movie/{id}")
+    @GetMapping(value={"detail-movie/{id}"})
     public String getMovieDetails(@PathVariable("id") long id, Model model) {
         String page;
 
@@ -31,6 +32,7 @@ public class MovieController {
             page = "movie-details-error";
         }else {
             model.addAttribute("movie", movieManager.getMovieByID(id));
+            model.addAttribute("maxStars", maxStars);
             page = "movie-details";
         }
 
@@ -39,15 +41,13 @@ public class MovieController {
     @GetMapping(value={ "list-movie"})
     public String getListMovie(Model model){
         model.addAttribute("movieList", movieManager.getListMovie());
-        List<Integer> maxStars = Arrays.asList(1, 2, 3, 4, 5);
         model.addAttribute("maxStar", maxStars);
 
         return "list-movie";
     }
-    //Formulaire
-    @GetMapping(value={ "form-movie"})
-    public String getFormMovie(Model model){
-        Movie movie = new Movie();
+    @GetMapping(value={ "form-movie", "form-movie/{id}"})
+    public String getFormMovie(@PathVariable(required = false) Long id, Model model){
+        Movie movie = id == null ? new Movie() : movieManager.getMovieByID(id);
         model.addAttribute("movie", movie);
 
         return "form-movie";

@@ -1,21 +1,15 @@
 <!DOCTYPE html>
-<html  lang="en"
-       xmlns:th="http://www.thymeleaf.org"
-       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-       layout:decorate="~{commun/base}"
->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{commun/base}">
 <body>
-<!-- Surcharger le title -->
 <title layout:fragment="title">Login</title>
-
-<!-- Surcharger le content -->
 <div layout:fragment="content">
-
     <div class="uk-container">
-
         <h1 class="uk-heading-divider uk-text-center" style="margin-top: 15px">Formulaire film</h1>
-
         <form th:object="${movie}" method="post" action="/form-movie">
+            <input th:field="*{id}" type="hidden">
             <div class="uk-margin">
                 <label class="uk-form-label" for="label-titre">Titre</label>
                 <input id="label-titre" th:field="*{titre}" type="text" class="uk-input"/>

@@ -25,7 +25,7 @@ public class MovieManager {
         public Movie mapRow(ResultSet rs, int rowNum) throws SQLException {
             Movie movie = new Movie();
 
-            movie.setId(rs.getInt("id"));
+            movie.setId(rs.getLong("id"));
             movie.setTitre(rs.getString("title"));
             movie.setNote(rs.getInt("note"));
             movie.setAnnee(rs.getInt("year"));
@@ -56,25 +56,20 @@ public class MovieManager {
     }
 
     public void saveMovie(Movie movie) {
-        // Tester si il existe en base, SI OUI => Update SINON => Insert
-        if (getMovieByID(movie.getId()) != null) {
-            // Update en base un aliment
-            jdbcTemplate.update("UPDATE movie SET title = ? note = ? year = ? duration = ? synopsis = ? poster = ? WHERE id = ?",
+        if (movie.getId() != null && getMovieByID(movie.getId()) != null) {
+            jdbcTemplate.update("UPDATE movie SET title = ?, year = ?, duration = ?, synopsis = ?, poster = ? WHERE id = ?",
                     movie.getTitre(),
-                    movie.getNote(),
                     movie.getAnnee(),
                     movie.getDuree(),
                     movie.getSynopsis(),
                     movie.getPoster(),
                     movie.getId());
 
-            // PS : Return = Arreter la fonction
             return;
         }
-        // Insérer en base un aliment
-        jdbcTemplate.update("INSERT INTO  movie (title, note, year, duration, synopsis, poster) WHERE id = ?",
+        jdbcTemplate.update("INSERT INTO  movie (title, note, year, duration, synopsis, poster) VALUES (?, ?, ?, ?, ?, ?)",
                 movie.getTitre(),
-                movie.getNote(),
+                0,
                 movie.getAnnee(),
                 movie.getDuree(),
                 movie.getSynopsis(),

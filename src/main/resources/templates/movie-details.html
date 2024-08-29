@@ -1,20 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="/vendor/uikit/css/uikit.min.css">
-    <link rel="stylesheet" href="/app-theme.css">
-
-    <script src="/vendor/uikit/js/uikit.min.js"></script>
-    <script src="/vendor/uikit/js/uikit-icons.min.js"></script>
-
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body class="app-page-background">
-<div class="app-common-page-padding uk-container">
-    <div class="uk-margin" th:text="${movie.titre}"></div>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{commun/base}">
+<div th:include="header"></div>
+<body>
+<title layout:fragment="title">Movie details</title>
+<div layout:fragment="content">
+    <div class="uk-section-default">
+        <div class="uk-section uk-light uk-background-cover"><!--style="background-image: url('static/film/the-dark-knight.webp')"-->
+        <!--<div class="uk-section uk-light uk-background-cover" th:styleappend="'background-image: url(static/film/' + ${movie.poster} + ')'">-->
+            <div class="uk-container">
+                <div>
+                    <h2 class="title" th:text="${movie.titre}"></h2>
+                    <div>
+                        <i th:each="star: ${maxStar}" class="fa-star"
+                           th:classappend="${movie.note >= star} ? 'fas' : 'far'"></i>
+                    </div>
+                    <p class="description" th:text="${movie.synopsis}"></p>
+                    <p class="info" th:text="${'Année: ' + movie.annee +
+                                ' durée: ' + movie.duree/60  + 'h' + movie.duree % 60}">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

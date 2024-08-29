@@ -5,28 +5,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title layout:fragment="title">Title</title>
-
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="/vendor/uikit/css/uikit.min.css"/>
-
     <!-- UIkit JS -->
     <script src="/vendor/uikit/js/uikit.min.js"></script>
     <script src="/vendor/uikit/js/uikit-icons.min.js"></script>
-
     <!-- Fontawesome CSS -->
     <!--  <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css"/> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
           integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-
     <!-- My Theme -->
     <link rel="stylesheet" href="/app-theme.css"/>
-
     <!-- Css supplementaire -->
     <div layout:fragment="css-files"></div>
-
-
 </head>
 <body>
 
@@ -47,10 +39,7 @@
         <a class="uk-icon-button" href=""><i class="fas fa-sign-out"></i></a>
     </div>
     <div class="uk-navbar-right eni-navbar-btn-padding">
-        <!-- Afficher le bouton se connecter si loggedUser est null (donc si pas connecté)-->
         <a th:if="${loggedUser == null}" class="uk-icon-button" href="/login"><i class="fas fa-sign-in-alt"></i></a>
-
-        <!-- Afficher le bouton se déconnecter si loggedUser est null (donc si connecté)-->
         <a th:if="${loggedUser}" class="uk-icon-button" href="/logout"><i class="fas fa-door-open"></i></a>
     </div>
 </nav>
@@ -60,6 +49,7 @@
             <li class="uk-active"><a href="">Home</a></li>
             <li><a href="/login">Login</a></li>
             <li><a href="/list-movie">Access to list of movies</a></li>
+            <li><a href="/form-movie">Add Movie</a></li>
         </ul>
     </div>
 </div>

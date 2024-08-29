@@ -2,11 +2,8 @@ package eni.tp.app.eni_app.entite;
 
 import jakarta.validation.constraints.*;
 
-import java.util.Calendar;
-import java.util.Date;
-
 public class Movie {
-    private long id;
+    private Long id;
 
     @NotBlank(message = "Le titre est obligatoire")
     @Size(min = 2,
@@ -30,7 +27,7 @@ public class Movie {
     private String poster;
 
     public Movie() {}
-    public Movie(long id, String titre, int annee, int duree, int note, String synopsis, String poster) {
+    public Movie(Long id, String titre, int annee, int duree, int note, String synopsis, String poster) {
         this.id = id;
         this.titre = titre;
         this.annee = annee;
@@ -41,7 +38,7 @@ public class Movie {
     }
 
     // Getters
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -70,7 +67,7 @@ public class Movie {
     }
 
     // Setters
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
