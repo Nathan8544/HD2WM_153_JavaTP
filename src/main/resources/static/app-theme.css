@@ -44,3 +44,20 @@ body {
     display: flex;
     justify-content: space-evenly;
 }
+/* Partie Card */
+.app-movie-card {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 800px;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 4px;
+    box-shadow: 2px 3px 12px rgba(0, 0, 0, .4);
+}
+
+.app-movie-card h1 {
+    color: #FFFFFF;
+    font-size: 1.2em;
+}

@@ -2,27 +2,34 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{commun/b ase}">
+      layout:decorate="~{commun/base}">
 <div th:include="header"></div>
 <body>
 <title layout:fragment="title">List of Movie</title>
-<!--<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="/vendor/uikit/css/uikit.min.css">
-    <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="/app-theme.css">
-
-    <script src="/vendor/uikit/js/uikit.min.js"></script>
-    <script src="/vendor/uikit/js/uikit-icons.min.js"></script>
-
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>-->
 <div layout:fragment="content">
     <h1 class="app-h1">List of movies</h1>
-    <a th:each="movie : ${movieList}" th:href="@{/detail-movie/{id}(id=${movie.id})}" style="text-decoration: none;">
-        <div class="uk-card uk-card-secondary uk-grid-collapse uk-child-width-1-2@s uk-margin uk-grid">
+    <div class="uk-child-width-1-2@s" uk-grid>
+        <a th:each="movie : ${movieList}" th:href="@{/detail-movie/{id}(id=${movie.id})}" style="text-decoration: none;" class="uk-padding-small">
+            <div class="app-movie-card" th:style="'background-image: url(/static/film/' + ${movie.poster} + ')'">
+                <div>
+                    <h1 class="uk-card-title" th:text="${movie.titre}"></h1>
+                    <p th:text="${movie.synopsis}"></p>
+                    <div class="app-space-between">
+                        <p th:text="${'Année: ' + movie.annee +
+                            ' durée: ' + movie.duree/60  + 'h' + movie.duree % 60}">
+                        </p>
+                        <div>
+                            <i th:each="star: ${maxStar}" class="fa-star"
+                               th:classappend="${movie.note >= star} ? 'fas' : 'far'"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+</body>        <!--<div class="uk-card uk-card-secondary uk-grid-collapse uk-child-width-1-2@s uk-margin uk-grid">
             <div th:classappend="${movie.id%2 == 1} ? 'uk-flex-last@s uk-card-media-right uk-cover-container' : 'uk-card-media-left uk-cover-container'">
                 <img th:src="${'film/' + movie.poster}" alt="" uk-cover>
                 <canvas width="600" height="400"></canvas>
@@ -42,9 +49,5 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </a>
-</div>
-
-</body>
+        </div>-->
 </html>
